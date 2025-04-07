@@ -18,7 +18,6 @@ use uuid::Uuid;
 
 use actix_service::{Service, Transform};
 use actix_utils::future::{Ready, ready};
-#[cfg(feature = "tracing-request-id")]
 use actix_web::HttpMessage;
 use actix_web::body::{BodySize, MessageBody};
 use actix_web::dev::{ServiceRequest, ServiceResponse};

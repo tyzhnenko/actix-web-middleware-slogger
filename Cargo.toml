@@ -14,10 +14,11 @@ homepage = "https://github.com/tyzhnenko/actix-web-middleware-slogger"
 resolver = "2"
 
 [features]
-default = ["log"]
+default = ["log", "uuid_v4"]
 log = ["dep:log"]
 tracing-request-id = ["dep:tracing-actix-web"]
 uuid_v7 = ["uuid/v7"]
+uuid_v4 = ["uuid/v4"]
 
 [dependencies]
 time = "0.3.37"
