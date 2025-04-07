@@ -1,0 +1,44 @@
+[package]
+name = "actix-web-middleware-slogger"
+version = "0.1.0"
+edition = "2024"
+authors = ["Dmytro Tyzhnenko <t.dmitry@gmail.com>"]
+description = "Struct based logger middleware for actix-web"
+license = "MIT"
+repository = "https://github.com/tyzhnenko/actix-web-middleware-slogger"
+readme = "README.md"
+keywords = ["actix-web", "actix", "web", "logger", "slog", "middleware", "log", "logging", "structured"]
+categories = ["web-programming"]
+documentation = "https://docs.rs/actix-web-middleware-slogger"
+homepage = "https://github.com/tyzhnenko/actix-web-middleware-slogger"
+resolver = "2"
+
+[features]
+default = ["log"]
+log = ["dep:log"]
+tracing-request-id = ["dep:tracing-actix-web"]
+uuid_v7 = ["uuid/v7"]
+
+[dependencies]
+time = "0.3.37"
+actix-http = "3.9.0"
+actix-service = { version = "2.0.2", default-features = false }
+actix-utils = { version = "3.0.1", default-features = false }
+actix-web = { version = "4.9.0", default-features = false }
+futures-core = "0.3.31"
+pin-project-lite = "0.2.16"
+regex = "1.11.1"
+bytes = "1.10.0"
+tracing-actix-web = { version = "0.7.16", optional = true }
+log = { version = "0.4.26", features = ["kv"], optional = true }
+uuid = "1.16.0"
+
+[dev-dependencies]
+actix-web-middleware-slogger = { path = ".", features = [
+    "log",
+    "tracing-request-id",
+    "uuid_v7",
+], default-features = false }
+actix-web = { version = "4.9.0", default-features = false, features = ["macros"] }
+tokio = { version = "1.44.1", features = ["io-std"] }
+structured-logger = "1.0.3"
